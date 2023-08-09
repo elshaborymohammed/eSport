@@ -1,0 +1,13 @@
+SMS:
+  GW:
+    PASSWORD: ''
+    SMSCRoute: ''
+    URL: ''
+    USERNAME: ''
+  MSGAT:
+    apikey: ''
+    userSender: ''
+    username: ''
+spring:
+  profiles:
+    active: local-v2

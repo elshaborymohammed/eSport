@@ -1,0 +1,9 @@
+rootProject.name = 'eSport'
+
+include('customer')
+
+include('user')
+include('team-club')
+include('otp-service')
+include('notifications')
+include('file-mgmt')

@@ -1,0 +1,91 @@
+debug: true
+
+feign.client.config.default.loggerLevel: full
+
+
+user-service.ribbon.listOfServers: http://localhost:6060
+team-club-service.ribbon.listOfServers: http://localhost:8001
+teamClub-service.ribbon.listOfServers: http://localhost:8001
+otp-service.ribbon.listOfServers: http://localhost:20061
+file-service.ribbon.listOfServers: http://localhost:8998
+notification-service.ribbon.listOfServers: http://localhost:8888
+customer-service.ribbon.listOfServers: http://localhost:8052
+
+apisix.key: edd1c9f034335f136f87ad84b625c8f1
+
+keycloack:
+  ribbon.listOfServers: http://127.0.0.1:8081
+  cli_client: admin-cli
+  cli_username: admin
+  cli_password: admin
+  cli_granttype: password
+
+logging.level:
+  root: INFO
+  log4j:
+    logger.searchLogger.quartz: off
+  org:
+    quartz: error
+    hibernate:
+      SQL: debug
+      type.descriptor.sql.BasicBinder: debug
+    springframework:
+      mail: debug
+      data: debug
+      jdbc.core:
+        JdbcTemplate: debug
+        StatementCreatorUtils: debug
+  sa.com.stcs: debug
+
+spring:
+  cloud.discovery.enabled: false
+  liquibase:
+    enabled: true
+    drop-first: true
+#  datasource:
+#    username: postgres
+#    password: postgres
+#    url: jdbc:postgresql://localhost:5432/customer
+  jpa:
+    show-sql: true
+    hibernate:
+      #none, validate, update, create-drop, create
+      ddl-auto: none
+  kafka:
+    bootstrap-servers: localhost:29092
+    consumer:
+      bootstrap-servers: localhost:29092
+    producer:
+      bootstrap-servers: localhost:29092
+#  mail:
+#    protocol: smtp
+#    host: smtp.gmail.com
+#    port: 465
+##    port: 587
+#    username: lshabory@gmail.com
+#    password: fplbcmbgzpiabklr
+#    properties:
+#      mail:
+#        debug: true
+#        transport.protocol: smtp
+#        smtp:
+#          auth: true
+#          ssl:
+#            enable: true
+#            trust: smtp.gmail.com
+#          starttls:
+#            enable: true
+  mail:
+    host: localhost
+    port: 1025
+    username: test
+    password: $2a$04$qxRo.ftFoNep7ld/5jfKtuBTnGqff/fZVyj53mUC5sVf9dtDLAi/S
+    properties:
+      mail:
+        debug: true
+        transport.protocol: smtp
+        smtp:
+          ssl.enable: false
+          auth: true
+          starttls:
+            enable: true
