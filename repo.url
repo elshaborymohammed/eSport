@@ -1,9 +1,11 @@
+git@gitlab.bluvalt.com:Esport/customer.git
 git@gitlab.bluvalt.com:Esport/user.git
+git@gitlab.bluvalt.com:Esport/team-club.git
+git@gitlab.bluvalt.com:Esport/notifications.git
+git@gitlab.bluvalt.com:Esport/otp-service.git
+git@gitlab.bluvalt.com:Esport/file-mgmt.git
 git@gitlab.bluvalt.com:Esport/organizer-sponsor.git
 git@gitlab.bluvalt.com:Esport/tournaments.git
-git@gitlab.bluvalt.com:Esport/team-club.git
 git@gitlab.bluvalt.com:Esport/tickets.git
 git@gitlab.bluvalt.com:Esport/payment.git
 git@gitlab.bluvalt.com:Esport/incident.git
-git@gitlab.bluvalt.com:Esport/notifications.git
-git@gitlab.bluvalt.com:Esport/customer.git

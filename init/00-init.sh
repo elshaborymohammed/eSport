@@ -1,9 +1,14 @@
 sh 01-init-customer.sh
-echo "\n==========================\n"
+printf "\n\n"
+
 sh 02-init-admin.sh
-echo "\n==========================\n"
+printf "\n\n"
+
 sh 03-apisix-upstreams.sh
-echo "\n==========================\n"
+printf "\n\n"
+
 sh 04-apisix-routes.sh
-echo "\n==========================\n"
-#sh 06-create-user.sh
+printf "\n\n"
+
+sh 05-reserved-profile.sh
+printf "\n\n"

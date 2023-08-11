@@ -7,5 +7,5 @@ curl --location --request POST 'http://127.0.0.1:8052/customer/v1/customer/super
     "crNumber": "1966123453",
     "mobileNumber": "+966554254232",
     "name" : "Saudi Esports Federation SEF",
-    "password": "Esports@1234"
+    "password": "abc@123"
     }'

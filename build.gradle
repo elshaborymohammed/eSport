@@ -1,0 +1,11 @@
+tasks.register('buildAll') {
+    subprojects.forEach {
+        buildAll.dependsOn it.tasks.build
+    }
+}
+
+tasks.register('cleanAll') {
+    subprojects.forEach {
+        cleanAll.dependsOn it.tasks.clean
+    }
+}

@@ -1,3 +1,26 @@
+spring:
+  profiles:
+    active: local-v2
+  cloud.discovery.enabled: false
+  liquibase:
+    enabled: true
+    drop-first: false
+  datasource:
+    username: root
+    password: root
+  #    url: jdbc:postgresql://localhost:5432/customer
+  jpa:
+    show-sql: true
+    hibernate:
+      #none, validate, update, create-drop, create
+      ddl-auto: none
+  kafka:
+    bootstrap-servers: localhost:29092
+    consumer:
+      bootstrap-servers: localhost:29092
+    producer:
+      bootstrap-servers: localhost:29092
+
 SMS:
   GW:
     PASSWORD: ''
@@ -8,6 +31,40 @@ SMS:
     apikey: ''
     userSender: ''
     username: ''
-spring:
-  profiles:
-    active: local-v2
+
+
+
+logging.level:
+  root: INFO
+  log4j:
+    logger.searchLogger.quartz: off
+  org:
+    quartz: error
+    hibernate:
+      SQL: debug
+      type.descriptor.sql.BasicBinder: debug
+    springframework:
+      mail: debug
+      data: debug
+      jdbc.core:
+        JdbcTemplate: debug
+        StatementCreatorUtils: debug
+  sa.com.stcs: debug
+
+
+user-service.ribbon.listOfServers: http://localhost:6060
+team-club-service.ribbon.listOfServers: http://localhost:8001
+teamClub-service.ribbon.listOfServers: http://localhost:8001
+otp-service.ribbon.listOfServers: http://localhost:8080
+file-service.ribbon.listOfServers: http://localhost:80
+notification-service.ribbon.listOfServers: http://localhost:8888
+customer-service.ribbon.listOfServers: http://localhost:8052
+
+apisix.key: edd1c9f034335f136f87ad84b625c8f1
+
+keycloack:
+  ribbon.listOfServers: http://127.0.0.1:8081
+  cli_client: admin-cli
+  cli_username: admin
+  cli_password: admin
+  cli_granttype: password

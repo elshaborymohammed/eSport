@@ -1,0 +1,13 @@
+.gradle
+.idea
+#customer
+#user
+#team-club
+#notifications
+#otp-service
+#file-mgmt
+#organizer-sponsor
+#tournaments
+#tickets
+#payment
+#incident
