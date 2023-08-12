@@ -1,6 +1,8 @@
+debug: true
+feign.client.config.default.loggerLevel: full
+
 spring:
-  profiles:
-    active: local-v2
+  profiles.active: local-v2
   cloud.discovery.enabled: false
   liquibase:
     enabled: true
@@ -8,7 +10,6 @@ spring:
   datasource:
     username: root
     password: root
-  #    url: jdbc:postgresql://localhost:5432/customer
   jpa:
     show-sql: true
     hibernate:
@@ -20,6 +21,20 @@ spring:
       bootstrap-servers: localhost:29092
     producer:
       bootstrap-servers: localhost:29092
+  mail:
+    host: localhost
+    port: 1025
+    username: test
+    password: $2a$04$qxRo.ftFoNep7ld/5jfKtuBTnGqff/fZVyj53mUC5sVf9dtDLAi/S
+    properties:
+      mail:
+        debug: true
+        transport.protocol: smtp
+        smtp:
+          ssl.enable: false
+          auth: true
+          starttls:
+            enable: true
 
 SMS:
   GW:
@@ -59,7 +74,6 @@ otp-service.ribbon.listOfServers: http://localhost:8080
 file-service.ribbon.listOfServers: http://localhost:80
 notification-service.ribbon.listOfServers: http://localhost:8888
 customer-service.ribbon.listOfServers: http://localhost:8052
-
 apisix.key: edd1c9f034335f136f87ad84b625c8f1
 
 keycloack:
