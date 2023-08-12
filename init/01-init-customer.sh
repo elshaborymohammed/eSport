@@ -1,4 +1,4 @@
-curl --location --request POST 'http://127.0.0.1:8052/customer/v1/customer/super-customer' \
+curl -w "\nhttp code: %{http_code} - content size %{size_download}\n"  --location --request POST 'http://127.0.0.1:8052/customer/v1/customer/super-customer' \
   --header 'Content-Type: application/json' \
   --data-raw '{
     "userEmail": "super_customer@esports.com",

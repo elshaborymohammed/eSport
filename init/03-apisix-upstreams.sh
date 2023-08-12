@@ -1,4 +1,4 @@
-curl "http://127.0.0.1:9180/apisix/admin/upstreams/customer" -H "X-API-KEY: edd1c9f034335f136f87ad84b625c8f1" -X PUT -d '
+curl -w "\nhttp code: %{http_code} - content size %{size_download}\n" "http://127.0.0.1:9180/apisix/admin/upstreams/customer" -H "X-API-KEY: edd1c9f034335f136f87ad84b625c8f1" -X PUT -d '
 
 {
   "nodes": [
@@ -24,7 +24,7 @@ curl "http://127.0.0.1:9180/apisix/admin/upstreams/customer" -H "X-API-KEY: edd1
   }
 }'
 
-curl "http://127.0.0.1:9180/apisix/admin/upstreams/user" -H "X-API-KEY: edd1c9f034335f136f87ad84b625c8f1" -X PUT -d '
+curl -w "\nhttp code: %{http_code} - content size %{size_download}\n" "http://127.0.0.1:9180/apisix/admin/upstreams/user" -H "X-API-KEY: edd1c9f034335f136f87ad84b625c8f1" -X PUT -d '
 
 {
   "nodes": [
@@ -50,7 +50,7 @@ curl "http://127.0.0.1:9180/apisix/admin/upstreams/user" -H "X-API-KEY: edd1c9f0
   }
 }'
 
-curl "http://127.0.0.1:9180/apisix/admin/upstreams/teamClub" -H "X-API-KEY: edd1c9f034335f136f87ad84b625c8f1" -X PUT -d '
+curl -w "\nhttp code: %{http_code} - content size %{size_download}\n" "http://127.0.0.1:9180/apisix/admin/upstreams/teamClub" -H "X-API-KEY: edd1c9f034335f136f87ad84b625c8f1" -X PUT -d '
 
 {
   "nodes": [

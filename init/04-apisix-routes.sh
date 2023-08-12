@@ -1,4 +1,4 @@
-curl "http://127.0.0.1:9180/apisix/admin/routes/customer" -H "X-API-KEY: edd1c9f034335f136f87ad84b625c8f1" -X PUT -d '
+curl -w "\nhttp code: %{http_code} - content size %{size_download}\n"  "http://127.0.0.1:9180/apisix/admin/routes/customer" -H "X-API-KEY: edd1c9f034335f136f87ad84b625c8f1" -X PUT -d '
 {
   "uri": "/customer/*",
   "name": "customer APIs route",
@@ -17,7 +17,7 @@ curl "http://127.0.0.1:9180/apisix/admin/routes/customer" -H "X-API-KEY: edd1c9f
   "status": 1
 }'
 
-curl "http://127.0.0.1:9180/apisix/admin/routes/userPublic" -H "X-API-KEY: edd1c9f034335f136f87ad84b625c8f1" -X PUT -d '
+curl -w "\nhttp code: %{http_code} - content size %{size_download}\n"  "http://127.0.0.1:9180/apisix/admin/routes/userPublic" -H "X-API-KEY: edd1c9f034335f136f87ad84b625c8f1" -X PUT -d '
 {
   "uris": [
     "/uaa/public/*",
@@ -39,7 +39,7 @@ curl "http://127.0.0.1:9180/apisix/admin/routes/userPublic" -H "X-API-KEY: edd1c
   "status": 1
 }'
 
-curl "http://127.0.0.1:9180/apisix/admin/routes/user" -H "X-API-KEY: edd1c9f034335f136f87ad84b625c8f1" -X PUT -d '
+curl -w "\nhttp code: %{http_code} - content size %{size_download}\n"  "http://127.0.0.1:9180/apisix/admin/routes/user" -H "X-API-KEY: edd1c9f034335f136f87ad84b625c8f1" -X PUT -d '
 {
   "uri": "/uaa/*",
   "name": "user route",
@@ -63,7 +63,7 @@ curl "http://127.0.0.1:9180/apisix/admin/routes/user" -H "X-API-KEY: edd1c9f0343
   "status": 1
 }'
 
-curl "http://127.0.0.1:9180/apisix/admin/routes/teamClubPublic" -H "X-API-KEY: edd1c9f034335f136f87ad84b625c8f1" -X PUT -d '
+curl -w "\nhttp code: %{http_code} - content size %{size_download}\n"  "http://127.0.0.1:9180/apisix/admin/routes/teamClubPublic" -H "X-API-KEY: edd1c9f034335f136f87ad84b625c8f1" -X PUT -d '
 {
   "uri": "/team-club/v1/public/*",
   "name": "team-club public APIs route",
@@ -82,7 +82,7 @@ curl "http://127.0.0.1:9180/apisix/admin/routes/teamClubPublic" -H "X-API-KEY: e
   "status": 1
 }'
 
-curl "http://127.0.0.1:9180/apisix/admin/routes/teamClub" -H "X-API-KEY: edd1c9f034335f136f87ad84b625c8f1" -X PUT -d '
+curl -w "\nhttp code: %{http_code} - content size %{size_download}\n"  "http://127.0.0.1:9180/apisix/admin/routes/teamClub" -H "X-API-KEY: edd1c9f034335f136f87ad84b625c8f1" -X PUT -d '
 {
   "uri": "/team-club/*",
   "name": "team club route",
