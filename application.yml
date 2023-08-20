@@ -6,7 +6,7 @@ spring:
   cloud.discovery.enabled: false
   liquibase:
     enabled: true
-    drop-first: false
+    drop-first: true
   datasource:
     username: root
     password: root

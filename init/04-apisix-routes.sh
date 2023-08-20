@@ -105,3 +105,27 @@ curl -w "\nhttp code: %{http_code} - content size %{size_download}\n"  "http://1
   "upstream_id": "teamClub",
   "status": 1
 }'
+
+curl -w "\nhttp code: %{http_code} - content size %{size_download}\n"  "http://127.0.0.1:9180/apisix/admin/routes/report" -H "X-API-KEY: edd1c9f034335f136f87ad84b625c8f1" -X PUT -d '
+{
+  "uri": "/report/*",
+  "name": "report route",
+  "methods": [
+    "GET",
+    "POST",
+    "PUT",
+    "DELETE",
+    "PATCH",
+    "HEAD",
+    "OPTIONS",
+    "CONNECT",
+    "TRACE"
+  ],
+  "plugins": {
+    "jwt-auth": {
+      "disable": false
+    }
+  },
+  "upstream_id": "report",
+  "status": 1
+}'
