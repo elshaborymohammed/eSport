@@ -18,14 +18,6 @@ SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
 SET @@SESSION.SQL_LOG_BIN= 0;
 
 --
--- GTID state at the beginning of the backup 
---
-
-SET @@GLOBAL.GTID_PURGED=/*!80000 '+'*/ '20593d82-a6e8-11ed-9ec1-020017010723:1-10248139,
-526b9052-2aed-11ee-bc48-02001701af43:1-1581393,
-ca47d2e2-3709-45fb-aa94-15742388f96a:1-36565';
-
---
 -- Current Database: `user-preprod`
 --
 
