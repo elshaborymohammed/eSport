@@ -14,7 +14,7 @@ spring:
     show-sql: true
     hibernate:
       #none, validate, update, create-drop, create
-      ddl-auto: none
+      ddl-auto: validate
   kafka:
     bootstrap-servers: localhost:29092
     consumer:

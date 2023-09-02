@@ -82,7 +82,7 @@ curl -w "\nhttp code: %{http_code} - content size %{size_download}\n" "http://12
   "nodes": [
     {
       "host": "host.docker.internal",
-      "port": 8001,
+      "port": 8002,
       "weight": 1
     }
   ],
