@@ -1,0 +1,124 @@
+classDiagram
+direction BT
+class attributes {
+   varchar(255) code
+   varchar(255) name
+   varchar(255) name_ar
+   varchar(255) category
+   varchar(255) platform
+   int id
+}
+class country {
+   varchar(255) name
+   varchar(255) name_ar
+   varchar(255) name_fr
+   varchar(255) nationality
+   varchar(255) nationality_ar
+   varchar(255) dial_code
+   varchar(255) code
+   varchar(255) regex
+   varchar(4000) flag
+   varchar(255) sorting
+   bigint id
+}
+class game_attribute_values {
+   varchar(255) code
+   varchar(255) name
+   varchar(255) name_ar
+   bigint game_attribute_id
+   int value_rank
+   int id
+}
+class game_attributes {
+   datetime(6) created_at
+   varchar(255) created_by_system_id
+   varchar(255) system_id
+   datetime(6) updated_at
+   varchar(255) updated_by_system_id
+   varchar(255) data_type
+   varchar(255) default_value
+   int max
+   int min
+   bit(1) required
+   int attribute_id
+   int game_id
+   bigint id
+}
+class games {
+   varchar(255) code
+   varchar(255) name
+   varchar(255) name_ar
+   int id
+}
+class member_game_attr_values {
+   datetime(6) created_at
+   varchar(255) created_by_system_id
+   varchar(255) system_id
+   datetime(6) updated_at
+   varchar(255) updated_by_system_id
+   int game_attribute_value_id
+   bigint member_game_id
+   bigint id
+}
+class member_game_attributes {
+   datetime(6) created_at
+   varchar(255) created_by_system_id
+   varchar(255) system_id
+   datetime(6) updated_at
+   varchar(255) updated_by_system_id
+   varchar(255) value
+   bigint game_attribute_id
+   int game_attribute_value_id
+   bigint member_game_id
+   bigint id
+}
+class member_games {
+   datetime(6) created_at
+   varchar(255) created_by_system_id
+   varchar(255) system_id
+   datetime(6) updated_at
+   varchar(255) updated_by_system_id
+   int game_id
+   int person_id
+   int game_order
+   bigint id
+}
+class person {
+   varchar(255) system_id
+   varchar(255) user_system_id
+   varchar(255) name
+   varchar(255) gender
+   varchar(255) mobile_number
+   bigint country_id
+   varchar(255) national_id
+   varchar(255) national_id_file
+   varchar(255) email
+   date birth_date
+   varchar(255) entity_type
+   timestamp created_at
+   timestamp updated_at
+   varchar(255) created_by_system_id
+   varchar(255) updated_by_system_id
+   varchar(255) country_code
+   varchar(255) code
+   varchar(255) cover_photo
+   bigint blocked_at
+   varchar(255) blocked_By
+   tinyint(1) is_blocked
+   text block_reason
+   varchar(255) member_id
+   int id
+}
+
+game_attribute_values  -->  game_attributes : game_attribute_id:id
+game_attributes  -->  attributes : attribute_id:id
+game_attributes  -->  games : game_id:id
+member_game_attr_values  -->  game_attribute_values : game_attribute_value_id:id
+member_game_attr_values  -->  member_game_attributes : member_game_id:id
+member_game_attr_values  -->  member_games : member_game_id:id
+member_game_attributes  -->  game_attribute_values : game_attribute_value_id:id
+member_game_attributes  -->  game_attributes : game_attribute_id:id
+member_game_attributes  -->  member_games : member_game_id:id
+member_games  -->  games : game_id:id
+member_games  -->  person : person_id:id
+person  -->  country : country_id:id
