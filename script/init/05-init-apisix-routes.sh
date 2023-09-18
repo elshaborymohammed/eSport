@@ -54,11 +54,6 @@ curl -w "\nhttp code: %{http_code} - content size %{size_download}\n"  "http://1
     "CONNECT",
     "TRACE"
   ],
-  "plugins": {
-    "jwt-auth": {
-      "disable": false
-    }
-  },
   "upstream_id": "user",
   "status": 1
 }'
@@ -97,11 +92,6 @@ curl -w "\nhttp code: %{http_code} - content size %{size_download}\n"  "http://1
     "CONNECT",
     "TRACE"
   ],
-  "plugins": {
-    "jwt-auth": {
-      "disable": false
-    }
-  },
   "upstream_id": "teamClub",
   "status": 1
 }'
@@ -121,11 +111,25 @@ curl -w "\nhttp code: %{http_code} - content size %{size_download}\n"  "http://1
     "CONNECT",
     "TRACE"
   ],
-  "plugins": {
-    "jwt-auth": {
-      "disable": false
-    }
-  },
   "upstream_id": "report",
+  "status": 1
+}'
+
+curl -w "\nhttp code: %{http_code} - content size %{size_download}\n"  "http://127.0.0.1:9180/apisix/admin/routes/notification" -H "X-API-KEY: edd1c9f034335f136f87ad84b625c8f1" -X PUT -d '
+{
+  "uri": "/notify/*",
+  "name": "notification route",
+  "methods": [
+    "GET",
+    "POST",
+    "PUT",
+    "DELETE",
+    "PATCH",
+    "HEAD",
+    "OPTIONS",
+    "CONNECT",
+    "TRACE"
+  ],
+  "upstream_id": "notification",
   "status": 1
 }'

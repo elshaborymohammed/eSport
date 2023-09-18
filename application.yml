@@ -6,8 +6,9 @@ spring:
   cloud.discovery.enabled: false
   liquibase:
     enabled: true
-#    drop-first: false
+  #    drop-first: false
   datasource:
+#    url: jdbc:mysql://localhost:3307/team-club-qa?allowMultiQueries=true
     username: root
     password: root
   jpa:
@@ -91,8 +92,9 @@ ignore.paths:
   - /swagger
   - /webjars
   - /v3/api-docs
-  - /v1
-  - /profile
+  #  - /v1
+  - /mail
+#  - /profile
 
 
 #export:
