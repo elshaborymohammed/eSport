@@ -88,13 +88,13 @@ keycloack:
   cli_password: admin
   cli_granttype: password
 
-ignore.paths:
-  - /swagger
-  - /webjars
-  - /v3/api-docs
-  #  - /v1
-  - /mail
-#  - /profile
+#ignore.paths:
+#  - /swagger
+#  - /webjars
+#  - /v3/api-docs
+#  #  - /v1
+#  - /mail
+##  - /profile
 
 
 #export:
@@ -102,7 +102,7 @@ ignore.paths:
 #  user_db: user-qa
 #  team_club_db: team-club-qa
 
-ENV: qa
+ENV: uat
 DOMAIN: https://${ENV}.saudiesports.sa/
 USER_DB: user-${ENV}
 TEAM_CLUB_DB: team-club-${ENV}

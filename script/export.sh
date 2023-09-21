@@ -1,7 +1,7 @@
 #!/bin/bash
 
-domain="localhost:8002"
-#domain= "https://$env.saudiesports.sa"
+# domain="localhost:8002"
+domain="https://qa.saudiesports.sa"
 env="qa"
 username="lshabory@gmail.com"
 password="abc@123"
@@ -38,9 +38,9 @@ filters=(
 printf "\033[1;33m>> With no filter <<\033[0m\n"
 for (( i=0; i<${#reports[@]}; i++ ))
 do
-    printf "\033[1;33m>> Export %s <<\033[0m\n", "${reports[$i]}";
+    printf "\033[1;32m>> Export %s <<\033[0m\n", "${reports[$i]}";
     echo "{\"columns\":[],\"filters\":[],\"locale\":\"en\",\"timeZone\":null}" | \
-      http -h POST "$domain/report/v1/exports/${reports[$i]}" \
+      http --verify=no -h POST "$domain/report/v1/exports/${reports[$i]}" \
             "Content-Type: application/json" \
             "Authorization: Bearer $access_token" \
            ;
@@ -50,9 +50,9 @@ done
 printf "\033[1;33m>> With all filters <<\033[0m\n"
 for (( i=0; i<${#reports[@]}; i++ ))
 do
-    printf "\033[1;33m>> Export %s <<\033[0m\n", "${reports[$i]}";
+    printf "\033[1;35m>> Export %s <<\033[0m\n", "${reports[$i]}";
     echo "{\"columns\":[],\"filters\":${filters[$i]},\"locale\":\"en\",\"timeZone\":null}" | \
-      http -h POST "$domain/report/v1/exports/${reports[$i]}" \
+      http --verify=no -h POST "$domain/report/v1/exports/${reports[$i]}" \
             "Content-Type: application/json" \
             "Authorization: Bearer $access_token" \
            ;
