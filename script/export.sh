@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # domain="localhost:8002"
-domain="https://qa.saudiesports.sa"
-env="qa"
+domain="https://uat.saudiesports.sa"
+env="uat"
 username="lshabory@gmail.com"
 password="abc@123"
 filter=0
@@ -21,7 +21,7 @@ filters=(
   '[{"columnName":"query","columnValue":"q"},{"columnName":"clubName","columnValue":"q"},{"columnName":"clubNameAr","columnValue":"q"},{"columnName":"ownerName","columnValue":"q"},{"columnName":"clubOwnerEmail","columnValue":"q"},{"columnName":"ownerMobileNumber","columnValue":"0109992512"},{"columnName":"nationalId","columnValue":"q"},{"columnName":"crNumber","columnValue":"q"},{"columnName":"iban","columnValue":"q"}]'
   #blockedClubs
   '[{"columnName":"query","columnValue":"q"},{"columnName":"clubName","columnValue":"q"},{"columnName":"clubNameAr","columnValue":"q"},{"columnName":"ownerName","columnValue":"q"},{"columnName":"clubOwnerEmail","columnValue":"q"},{"columnName":"ownerMobileNumber","columnValue":"1"},{"columnName":"nationalId","columnValue":"q"},{"columnName":"crNumber","columnValue":"q"},{"columnName":"iban","columnValue":"q"},{"columnName":"blockDateStart","columnValue":1693601999999},{"columnName":"blockDateEnd","columnValue":1695070799999}]'
-  #memberso
+  #members
   '[{"columnName":"query","columnValue":"q","operator":"equals"},{"columnName":"memberName","columnValue":"q","columnValues":null,"operator":"equals"},{"columnName":"email","columnValue":"q","columnValues":null,"operator":"equals"},{"columnName":"mobileNumber","columnValue":"01019992512","columnValues":null,"operator":"equals"},{"columnName":"countryIdList","columnValue":null,"columnValues":[2,10],"operator":"equals"},{"columnName":"genderList","columnValue":null,"columnValues":["MALE","FEMALE"],"operator":"equals"},{"columnName":"roleListFilter","columnValue":null,"columnValues":["PLAYER","COACH"],"operator":"equals"},{"columnName":"teamName","columnValue":"q","columnValues":null,"operator":"equals"},{"columnName":"clubName","columnValue":"q","columnValues":null,"operator":"equals"}]'
   #blockedMembers
   '[{"columnName":"query","columnValue":"q","operator":"equals"},{"columnName":"memberName","columnValue":"q","columnValues":null,"operator":"equals"},{"columnName":"email","columnValue":"q","columnValues":null,"operator":"equals"},{"columnName":"mobileNumber","columnValue":"010199926512","columnValues":null,"operator":"equals"},{"columnName":"countryIdList","columnValue":null,"columnValues":[2,3],"operator":"equals"},{"columnName":"genderList","columnValue":null,"columnValues":["MALE","FEMALE"],"operator":"equals"},{"columnName":"roleListFilter","columnValue":null,"columnValues":["PLAYER","COACH","REFEREE"],"operator":"equals"},{"columnName":"blockDateStart","columnValue":1693601999999,"columnValues":null,"operator":"equals"},{"columnName":"blockDateEnd","columnValue":1695070799999,"columnValues":null,"operator":"equals"},{"columnName":"memberName","columnValue":"q"},{"columnName":"email","columnValue":"q"},{"columnName":"mobileNumber","columnValue":"010199926512"},{"columnName":"countryIdList","columnValue":null},{"columnName":"genderList","columnValue":null},{"columnName":"roleListFilter","columnValue":null},{"columnName":"blockDateStart","columnValue":1693601999999},{"columnName":"blockDateEnd","columnValue":1695070799999}]'
@@ -40,7 +40,7 @@ for (( i=0; i<${#reports[@]}; i++ ))
 do
     printf "\033[1;32m>> Export %s <<\033[0m\n", "${reports[$i]}";
     echo "{\"columns\":[],\"filters\":[],\"locale\":\"en\",\"timeZone\":null}" | \
-      http --verify=no -h POST "$domain/report/v1/exports/${reports[$i]}" \
+      http --download --output "$HOME/Downloads/${reports[$i]}".xlsx --verify=no -h POST "$domain/report/v1/exports/${reports[$i]}" \
             "Content-Type: application/json" \
             "Authorization: Bearer $access_token" \
            ;
@@ -52,7 +52,7 @@ for (( i=0; i<${#reports[@]}; i++ ))
 do
     printf "\033[1;35m>> Export %s <<\033[0m\n", "${reports[$i]}";
     echo "{\"columns\":[],\"filters\":${filters[$i]},\"locale\":\"en\",\"timeZone\":null}" | \
-      http --verify=no -h POST "$domain/report/v1/exports/${reports[$i]}" \
+      http --download --verify=no -h POST "$domain/report/v1/exports/${reports[$i]}" \
             "Content-Type: application/json" \
             "Authorization: Bearer $access_token" \
            ;
