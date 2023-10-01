@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# domain="localhost:8002"
-domain="https://uat.saudiesports.sa"
-env="uat"
+env="qa"
+domain="localhost:8002"
+#domain="https://uat.saudiesports.sa"
+
 username="lshabory@gmail.com"
 password="abc@123"
-filter=0
 echo "ENV=$env"
 
 printf "\033[1;33m>> Login as an admin <<\033[0m\n"
@@ -13,9 +13,11 @@ access_token=$(curl -X POST --location "https://$env.saudiesports.sa/auth/realms
                    -H "Content-Type: application/x-www-form-urlencoded" \
                    -d "username=$username&password=$password&client_id=WEB&grant_type=password" \
                    | jq .access_token | sed -e 's/\"//g')
+
+printf access_token
 printf "\n\n"
 
-reports=('clubs' 'blockedClubs' 'members' 'blockedMembers' 'teams' 'archivedTeams' 'clans' 'archivedClans')
+reports=('clubs' 'blockedClubs' 'members' 'blockedMembers' 'teams' 'archivedTeams' 'clans' 'archivedClans' 'all')
 filters=(
   #clubs
   '[{"columnName":"query","columnValue":"q"},{"columnName":"clubName","columnValue":"q"},{"columnName":"clubNameAr","columnValue":"q"},{"columnName":"ownerName","columnValue":"q"},{"columnName":"clubOwnerEmail","columnValue":"q"},{"columnName":"ownerMobileNumber","columnValue":"0109992512"},{"columnName":"nationalId","columnValue":"q"},{"columnName":"crNumber","columnValue":"q"},{"columnName":"iban","columnValue":"q"}]'
@@ -33,6 +35,8 @@ filters=(
   '[{"columnName":"query","columnValue":"q","operator":"equals"},{"columnName":"teamName","operator":"equals","columnValue":"q","columnValues":null},{"columnName":"memberName","operator":"equals","columnValue":"q","columnValues":null},{"columnName":"gameId","operator":"equals","columnValue":1,"columnValues":null}]'
   #archivedClans
   '[{"columnName":"query","columnValue":"q","operator":"equals"},{"columnName":"teamName","operator":"equals","columnValue":"q","columnValues":null},{"columnName":"memberName","operator":"equals","columnValue":"q","columnValues":null},{"columnName":"gameId","operator":"equals","columnValue":5,"columnValues":null}]'
+  #all
+  ''
 )
 
 printf "\033[1;33m>> With no filter <<\033[0m\n"
@@ -47,17 +51,17 @@ do
     printf "\n\n";
 done
 
-printf "\033[1;33m>> With all filters <<\033[0m\n"
-for (( i=0; i<${#reports[@]}; i++ ))
-do
-    printf "\033[1;35m>> Export %s <<\033[0m\n", "${reports[$i]}";
-    echo "{\"columns\":[],\"filters\":${filters[$i]},\"locale\":\"en\",\"timeZone\":null}" | \
-      http --download --verify=no -h POST "$domain/report/v1/exports/${reports[$i]}" \
-            "Content-Type: application/json" \
-            "Authorization: Bearer $access_token" \
-           ;
-    printf "\n\n";
-done
+#printf "\033[1;33m>> With all filters <<\033[0m\n"
+#for (( i=0; i<${#reports[@]}; i++ ))
+#do
+#    printf "\033[1;35m>> Export %s <<\033[0m\n", "${reports[$i]}";
+#    echo "{\"columns\":[],\"filters\":${filters[$i]},\"locale\":\"en\",\"timeZone\":null}" | \
+#      http --download --verify=no -h POST "$domain/report/v1/exports/${reports[$i]}" \
+#            "Content-Type: application/json" \
+#            "Authorization: Bearer $access_token" \
+#           ;
+#    printf "\n\n";
+#done
 
 
 ##${filters[$i]}

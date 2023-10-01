@@ -11,6 +11,8 @@ spring:
 #    url: jdbc:mysql://localhost:3307/team-club-qa?allowMultiQueries=true
     username: root
     password: root
+#    username: readonly
+#    password: r3@d0NlY
   jpa:
     properties:
       hibernate:
@@ -64,7 +66,7 @@ logging.level:
       SQL: OFF
       type.descriptor.sql.BasicBinder: OFF
     springframework:
-      mail: DEBUG
+      mail: OFF
       data: DEBUG
       jdbc.core:
         JdbcTemplate: OFF
