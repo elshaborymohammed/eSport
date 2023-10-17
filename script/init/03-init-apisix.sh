@@ -1,5 +1,5 @@
-sh 03-apisix-upstreams.sh
+sh 04-init-apisix-upstreams.sh
 printf "\n\n"
 
-sh 04-apisix-routes.sh
+sh 05-init-apisix-routes.sh
 printf "\n\n"
