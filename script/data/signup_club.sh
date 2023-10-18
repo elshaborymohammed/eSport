@@ -1,29 +1,28 @@
 #!/bin/bash
 
-while getopts e:r:n: flag
+while getopts n:e:r:u:p: flag
 do
     case "${flag}" in
+        n) num=${OPTARG};;
         e) env=${OPTARG};;
         r) role=${OPTARG};;
-        n) num=${OPTARG};;
+        u) username=${OPTARG};;
+        p) password=${OPTARG};;
     esac
 done
-
-#declare -A domain=(
-#  [dev]="https://dev.saudiesports.sa"
-#  [qa]="https://qa.saudiesports.sa"
-#  [localhost]="http://127.0.0.1:9080"
-#)
-#
-#echo "Domain: ${domain[qa]}"
-
 num=${num:-1}
 env=${env:-"dev"}
-domain="https://${env}.saudiesports.sa"
-#env="local"
-#domain="http://127.0.0.1:9080"
-username="admin@saudiesports.sa"
-password="abc123"
+username=${username:-"admin@saudiesports.sa"}
+password=${password:-"abc123"}
+
+
+domain=
+if [ "$env" = "local" ]; then
+  domain="http://127.0.0.1:9080"
+else
+  domain="https://${env}.saudiesports.sa"
+fi
+printf "\033[1;33m>> env: $env - domain: $domain <<\033[0m\n"
 
 access_token=$(curl --silent -X POST --location "$domain/auth/realms/cust_esports.com/protocol/openid-connect/token" \
                      -H "Content-Type: application/x-www-form-urlencoded" \
@@ -31,10 +30,15 @@ access_token=$(curl --silent -X POST --location "$domain/auth/realms/cust_esport
                      | jq .access_token | sed -e 's/\"//g')
 
 #printf "\033[1;33m>> Get admin system id <<\033[0m\n"
-admin=$(curl --silent -X GET --location "$domain/uaa/user/account-details" \
+#admin=$(curl --silent -X GET --location "$domain/uaa/user/account-details" \
+#      -H "Content-Type: application/json" \
+#      -H "Authorization: Bearer $access_token" \
+#      | jq .id | sed -e 's/\"//g')
+#printf "\033[1;33m>> admin details: $admin <<\033[0m\n"
+admin=$(curl --silent -X GET --location "$domain/auth/realms/cust_esports.com/protocol/openid-connect/userinfo" \
       -H "Content-Type: application/json" \
       -H "Authorization: Bearer $access_token" \
-      | jq .id | sed -e 's/\"//g')
+      | jq .sub | sed -e 's/\"//g')
 #printf "\033[1;33m>> admin: $admin <<\033[0m\n"
 
 function run() {
@@ -110,5 +114,3 @@ function run() {
 for ((i = 0; i < num; ++i)); do
     run
 done
-
-#kubectl -n esport-dev logs -f --tail 500 esport-dev-team-club-58d65fb954-kqnm9

@@ -1,28 +1,28 @@
 #!/bin/bash
 
-while getopts e:r:n: flag
+while getopts n:e:r:u:p: flag
 do
     case "${flag}" in
+        n) num=${OPTARG};;
         e) env=${OPTARG};;
         r) role=${OPTARG};;
-        n) num=${OPTARG};;
+        u) username=${OPTARG};;
+        p) password=${OPTARG};;
     esac
 done
-
-#declare -A domain=(
-#  [dev]="https://dev.saudiesports.sa"
-#  [qa]="https://qa.saudiesports.sa"
-#  [localhost]="http://127.0.0.1:9080"
-#)
-#
-#echo "Domain: ${domain[qa]}"
-
 num=${num:-1}
 env=${env:-"dev"}
-domain="https://${env}.saudiesports.sa"
+username=${username:-"admin@saudiesports.sa"}
+password=${password:-"abc123"}
 
-#env="local"
-#domain="http://127.0.0.1:9080"
+
+domain=
+if [ "$env" = "local" ]; then
+  domain="http://127.0.0.1:9080"
+else
+  domain="https://${env}.saudiesports.sa"
+fi
+printf "\033[1;33m>> env: $env - domain: $domain <<\033[0m\n"
 
 function run() {
   entity="Person"
