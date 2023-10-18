@@ -6,7 +6,7 @@ spring:
   cloud.discovery.enabled: false
   liquibase:
     enabled: true
-  #    drop-first: false
+    drop-first: false
   datasource:
 #    url: jdbc:mysql://localhost:3307/team-club-qa?allowMultiQueries=true
     username: root
