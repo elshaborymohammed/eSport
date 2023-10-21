@@ -1,7 +1,6 @@
-env,role,name,email,phone
-dev,PLAYER,nucg,nucg@mailinator.com,+201061953270
-dev,PLAYER,gixk,gixk@mailinator.com,+201070229612
-dev,PLAYER,wyuj,wyuj@mailinator.com,+201070774767
+env,role,name,email,phone,used
+dev,PLAYER,gixk,gixk@mailinator.com,+201070229612,true
+dev,PLAYER,wyuj,wyuj@mailinator.com,+201070774767,true
 dev,PLAYER,vkhi,vkhi@mailinator.com,+201082849114
 dev,PLAYER,oyxt,oyxt@mailinator.com,+201006495850
 dev,PLAYER,qpzb,qpzb@mailinator.com,+201045278745
@@ -34,3 +33,6 @@ dev,PLAYER,hbss,hbss@mailinator.com,+201064233651
 dev,PLAYER,cqke,cqke@mailinator.com,+201000793398
 dev,PLAYER,bive,bive@mailinator.com,+201069204324
 local,PLAYER,sfck,sfck@mailinator.com,+201017301134
+dev,PLAYER,sibx,sibx@mailinator.com,+201070470758
+dev,PLAYER,itmt,itmt@mailinator.com,+201020144839
+dev,PLAYER,gcom,gcom@mailinator.com,+201027314758

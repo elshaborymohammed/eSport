@@ -1,6 +1,6 @@
 #!/bin/bash
 
-while getopts n:e:r:u:p:a: flag
+while getopts n:e:r:u:p:a:o: flag
 do
     case "${flag}" in
         n) num=${OPTARG};;
@@ -9,6 +9,7 @@ do
         u) username=${OPTARG};;
         p) password=${OPTARG};;
         a) approve=${OPTARG};;
+        o) output=${OPTARG};;
     esac
 done
 num=${num:-1}
@@ -48,8 +49,8 @@ function signup() {
   entity="Person"
   role=${role:-"CLUB"}
   code="+20"
-  phone="10$(sh random_number.sh -l 8)"
-  name=$(sh random_english.sh -l 5)
+  phone="10$(sh utils/random_number.sh -l 8)"
+  name=$(sh utils/random_english.sh -l 5)
   mail="mailinator.com"
 
   #printf "\033[1;33m>> Check existence <<\033[0m"
@@ -78,11 +79,11 @@ function signup() {
               \"countryCode\": \"${code}\",
               \"mobileNumber\": \"${phone}\",
               \"email\": \"${name}@${mail}\",
-              \"clubIBAN\": \"SA$(sh random_number.sh -l 22)\",
-              \"nationalId\": \"$(sh random_number.sh -l 9)\",
-              \"crNumber\": \"$(sh random_number.sh -l 11)\",
+              \"clubIBAN\": \"SA$(sh utils/random_number.sh -l 22)\",
+              \"nationalId\": \"$(sh utils/random_number.sh -l 9)\",
+              \"crNumber\": \"$(sh utils/random_number.sh -l 11)\",
               \"clubName\": \"${name} Club\",
-              \"clubNameAr\": \"$(sh random_arabic.sh -l 5)\",
+              \"clubNameAr\": \"$(sh utils/random_arabic.sh -l 5)\",
               \"name\": \"${name} ${role}\",
               \"password\": \"abc123\",
               \"gender\": \"MALE\",
@@ -118,9 +119,9 @@ approve(){
 
 log(){
     # shellcheck disable=SC2059
-    printf "${env},${role},${name},${name}@${mail},${code}${phone}\n" >> clubs.csv
+    printf "${env},${role},${name},${name}@${mail},${code}${phone},${request},${approve}\n" >> ${output:-"data/clubs.csv"}
     # shellcheck disable=SC2059
-    printf "\033[1;33m>> env: ${env} - role: ${role} - email: ${name}@${mail} - phone: ${code}${phone} - request: ${request}<<\033[0m\n"
+    printf "\033[1;33m>> env: ${env} - role: ${role} - email: ${name}@${mail} - phone: ${code}${phone} - request: ${request} - approved: ${approve}<<\033[0m\n"
 }
 
 

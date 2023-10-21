@@ -1,0 +1,6 @@
+env,role,name,email,phone,request,approved,used
+dev,CLUB,uksz,uksz@mailinator.com,+201045529982,33182703-f655-4245-b81e-3b2f866cebea,true,true
+dev,CLUB,woko,woko@mailinator.com,+201066100360,01c5c422-39a7-47fc-9c21-2d3060e6aff3,true,true
+dev,CLUB,bgkq,bgkq@mailinator.com,+201037807024,30ac2001-b49b-407f-9a28-ab5a2372e8f9,true
+dev,CLUB,zujy,zujy@mailinator.com,+201022546002,5c9ec1b1-fc68-43a1-a43f-79827222b4f8,true
+dev,CLUB,krvd,krvd@mailinator.com,+201066579607,8bded4ce-f22d-4f1b-a0f0-b430ed4599a1,true

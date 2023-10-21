@@ -1,6 +1,6 @@
 #!/bin/bash
 
-while getopts n:e:r:u:p: flag
+while getopts n:e:r:u:p:o: flag
 do
     case "${flag}" in
         n) num=${OPTARG};;
@@ -8,6 +8,7 @@ do
         r) role=${OPTARG};;
         u) username=${OPTARG};;
         p) password=${OPTARG};;
+        o) output=${OPTARG};;
     esac
 done
 num=${num:-1}
@@ -28,8 +29,8 @@ function run() {
   entity="Person"
   role=${role:-"PLAYER"}
   code="+20"
-  phone="10$(sh random_number.sh -l 8)"
-  name=$(sh random_english.sh -l 5)
+  phone="10$(sh utils/random_number.sh -l 8)"
+  name=$(sh utils/random_english.sh -l 5)
   mail="mailinator.com"
 
 #  printf "\033[1;33m>> Check existence <<\033[0m\n"
@@ -69,7 +70,7 @@ function run() {
             }
           }"
 
-  printf "${env},${role},${name},${name}@${mail},${code}${phone}\n" >> members.csv
+  printf "${env},${role},${name},${name}@${mail},${code}${phone}\n" >> ${output:-"data/members.csv"}
   printf "\033[1;33m>> env: ${env} - role: ${role} - email: ${name}@${mail} - phone: ${code}${phone} <<\033[0m\n\n"
 }
 
