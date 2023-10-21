@@ -17,3 +17,4 @@ http POST "http://127.0.0.1:9080/uaa/profile/team-profiles" \
         "Content-Type: application/json" \
         "Authorization: Bearer $access_token" \
         ;
+

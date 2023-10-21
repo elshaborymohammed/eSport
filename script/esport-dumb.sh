@@ -1,6 +1,12 @@
 #!/bin/bash
 
-env="dev"
+while getopts e: flag
+do
+    case "${flag}" in
+        e) env=${OPTARG};;
+    esac
+done
+env=${env:-"dev"}
 
 #ssh -L 33006:10.11.4.6:3306 -i ~/.ssh/readonly_key readonly@81.208.160.82
 

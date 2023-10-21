@@ -19,6 +19,7 @@ password=${password:-"abc123"}
 domain=
 if [ "$env" = "local" ]; then
   domain="http://127.0.0.1:9080"
+  username="admin@esport.sa"
 else
   domain="https://${env}.saudiesports.sa"
 fi
@@ -41,7 +42,7 @@ admin=$(curl --silent -X GET --location "$domain/auth/realms/cust_esports.com/pr
       | jq .sub | sed -e 's/\"//g')
 #printf "\033[1;33m>> admin: $admin <<\033[0m\n"
 
-function run() {
+function signup() {
   entity="Person"
   role=${role:-"CLUB"}
   code="+20"
@@ -93,24 +94,37 @@ function run() {
             }
           }"\
     | jq .systemId | sed -e 's/\"//g')
-
-  #printf "\033[1;33m>> Re-assign Request <<\033[0m\n"
-  curl --silent -X PATCH --location "$domain/team-club/v1/assigned_request/$request/reassign" \
-      -H "Content-Type: application/json" \
-      -H "Authorization: Bearer $access_token" \
-      -d "{\"userId\": \"$admin\"}" > /dev/null
-
-  #printf "\n\033[1;33m>> Approve Request <<\033[0m\n"
-  curl --silent -X PATCH --location "$domain/team-club/v1/assigned_request/$request" \
-      -H "Content-Type: application/json" \
-      -H "Authorization: Bearer $access_token" \
-      -d "{\"status\": \"APPROVED\"}" 1> /dev/null
-
-
-  printf "${env},${role},${name},${name}@${mail},${code}${phone}\n" >> members.csv
-  printf "\033[1;33m>> env: ${env} - role: ${role} - email: ${name}@${mail} - phone: ${code}${phone} - request: ${request}<<\033[0m\n"
 }
 
+reassign(){
+  printf "\033[1;33m>> Re-assign Request <<\033[0m\n"
+  curl -X PATCH --location "$domain/team-club/v1/assigned_request/$request/reassign" \
+      -H "Content-Type: application/json" \
+      -H "Authorization: Bearer $access_token" \
+      -d "{\"userId\": \"$admin\"}"
+#      > /dev/null
+}
+
+approve(){
+  printf "\n\033[1;33m>> Approve Request <<\033[0m\n"
+  curl -X PATCH --location "$domain/team-club/v1/assigned_request/$request" \
+      -H "Content-Type: application/json" \
+      -H "Authorization: Bearer $access_token" \
+      -d "{\"status\": \"APPROVED\"}"
+#      1> /dev/null
+}
+
+log(){
+    # shellcheck disable=SC2059
+    printf "${env},${role},${name},${name}@${mail},${code}${phone}\n" >> clubs.csv
+    # shellcheck disable=SC2059
+    printf "\033[1;33m>> env: ${env} - role: ${role} - email: ${name}@${mail} - phone: ${code}${phone} - request: ${request}<<\033[0m\n"
+}
+
+
 for ((i = 0; i < num; ++i)); do
-    run
+    signup
+    reassign
+    approve
+    log
 done
