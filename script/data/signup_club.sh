@@ -1,6 +1,6 @@
 #!/bin/bash
 
-while getopts n:e:r:u:p: flag
+while getopts n:e:r:u:p:a: flag
 do
     case "${flag}" in
         n) num=${OPTARG};;
@@ -8,12 +8,14 @@ do
         r) role=${OPTARG};;
         u) username=${OPTARG};;
         p) password=${OPTARG};;
+        a) approve=${OPTARG};;
     esac
 done
 num=${num:-1}
 env=${env:-"dev"}
 username=${username:-"admin@saudiesports.sa"}
 password=${password:-"abc123"}
+approve=${approve:-true}
 
 
 domain=
@@ -124,7 +126,9 @@ log(){
 
 for ((i = 0; i < num; ++i)); do
     signup
-    reassign
-    approve
+    if [ "$approve" = true ]; then
+      reassign
+      approve
+    fi
     log
 done
