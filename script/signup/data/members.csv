@@ -4,10 +4,10 @@ dev,PLAYER,wyuj,wyuj@mailinator.com,+201070774767,true
 dev,PLAYER,vkhi,vkhi@mailinator.com,+201082849114
 dev,PLAYER,oyxt,oyxt@mailinator.com,+201006495850
 dev,PLAYER,qpzb,qpzb@mailinator.com,+201045278745
-qa,PLAYER,wvzc,wvzc@mailinator.com,+201092690403
-qa,PLAYER,gkxi,gkxi@mailinator.com,+201048834136
-qa,PLAYER,iwtg,iwtg@mailinator.com,+201056552272
-qa,PLAYER,bvam,bvam@mailinator.com,+201015525092
+qa,PLAYER,wvzc,wvzc@mailinator.com,+201092690403,true
+qa,PLAYER,gkxi,gkxi@mailinator.com,+201048834136,true
+qa,PLAYER,iwtg,iwtg@mailinator.com,+201056552272,true
+qa,PLAYER,bvam,bvam@mailinator.com,+201015525092,true
 qa,PLAYER,okme,okme@mailinator.com,+201079873358
 dev,PLAYER,zziw,zziw@mailinator.com,+201004948095
 dev,PLAYER,qojr,qojr@mailinator.com,+201074344341
@@ -36,3 +36,6 @@ local,PLAYER,sfck,sfck@mailinator.com,+201017301134
 dev,PLAYER,sibx,sibx@mailinator.com,+201070470758
 dev,PLAYER,itmt,itmt@mailinator.com,+201020144839
 dev,PLAYER,gcom,gcom@mailinator.com,+201027314758
+qa,CLUB_ADMIN,slkw,slkw@mailinator.com,+201059795683,true
+dev,PLAYER,omig,omig@mailinator.com,+201073164456
+local,PLAYER,cdhc,cdhc@mailinator.com,+201047851886

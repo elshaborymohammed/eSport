@@ -73,7 +73,7 @@ curl -w "\nhttp code: %{http_code} - content size %{size_download}\n"  "http://1
     "CONNECT",
     "TRACE"
   ],
-  "upstream_id": "teamClub",
+  "upstream_id": "team_club",
   "status": 1
 }'
 
@@ -92,7 +92,7 @@ curl -w "\nhttp code: %{http_code} - content size %{size_download}\n"  "http://1
     "CONNECT",
     "TRACE"
   ],
-  "upstream_id": "teamClub",
+  "upstream_id": "team_club",
   "status": 1
 }'
 
@@ -134,7 +134,7 @@ curl -w "\nhttp code: %{http_code} - content size %{size_download}\n"  "http://1
   "status": 1
 }'
 
-curl -w "\nhttp code: %{http_code} - content size %{size_download}\n"  "http://127.0.0.1:9180/apisix/admin/routes/notification" -H "X-API-KEY: edd1c9f034335f136f87ad84b625c8f1" -X PUT -d '
+curl -w "\nhttp code: %{http_code} - content size %{size_download}\n"  "http://127.0.0.1:9180/apisix/admin/routes/auth" -H "X-API-KEY: edd1c9f034335f136f87ad84b625c8f1" -X PUT -d '
 {
   "uri": "/auth/*",
   "name": "auth route",
@@ -150,5 +150,62 @@ curl -w "\nhttp code: %{http_code} - content size %{size_download}\n"  "http://1
     "TRACE"
   ],
   "upstream_id": "auth",
+  "status": 1
+}'
+
+curl -w "\nhttp code: %{http_code} - content size %{size_download}\n"  "http://127.0.0.1:9180/apisix/admin/routes/kafka_ui" -H "X-API-KEY: edd1c9f034335f136f87ad84b625c8f1" -X PUT -d '
+{
+  "uri": "/kafka_ui/*",
+  "name": "kafka ui route",
+  "methods": [
+    "GET",
+    "POST",
+    "PUT",
+    "DELETE",
+    "PATCH",
+    "HEAD",
+    "OPTIONS",
+    "CONNECT",
+    "TRACE"
+  ],
+  "upstream_id": "kafka_ui",
+  "status": 1
+}'
+
+curl -w "\nhttp code: %{http_code} - content size %{size_download}\n"  "http://127.0.0.1:9180/apisix/admin/routes/apisix" -H "X-API-KEY: edd1c9f034335f136f87ad84b625c8f1" -X PUT -d '
+{
+  "uri": "/apisix/*",
+  "name": "apisix route",
+  "methods": [
+    "GET",
+    "POST",
+    "PUT",
+    "DELETE",
+    "PATCH",
+    "HEAD",
+    "OPTIONS",
+    "CONNECT",
+    "TRACE"
+  ],
+  "upstream_id": "apisix",
+  "status": 1
+}'
+
+curl -w "\nhttp code: %{http_code} - content size %{size_download}\n"  "http://127.0.0.1:9180/apisix/admin/routes/mail" -H "X-API-KEY: edd1c9f034335f136f87ad84b625c8f1" -X PUT -d '
+{
+  "uri": "/mail",
+  "name": "mail route",
+  "methods": [
+    "GET",
+    "POST",
+    "PUT",
+    "DELETE",
+    "PATCH",
+    "HEAD",
+    "OPTIONS",
+    "CONNECT",
+    "TRACE"
+  ],
+  "upstream_id": "mail",
   "status": 1
 }'
