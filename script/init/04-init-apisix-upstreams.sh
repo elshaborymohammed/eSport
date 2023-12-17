@@ -2,8 +2,8 @@
 
 api_key='edd1c9f034335f136f87ad84b625c8f1'
 domain='http://127.0.0.1:9180/apisix/admin/upstreams'
-upstreams=('auth' 'mail' 'apisix' 'kafka_ui' 'customer' 'user' 'team_club' 'report' 'notification')
-ports=(8081 8025 9000 29091 8052 6060 8001 8002 8888)
+upstreams=('auth' 'mail' 'apisix' 'kafka_ui' 'customer' 'user' 'team_club' 'report' 'notification' 'resource')
+ports=(8081 8025 9000 29091 8052 6060 8001 8002 8888 8998)
 
 
 for (( i=0; i<${#upstreams[@]}; i++ ))

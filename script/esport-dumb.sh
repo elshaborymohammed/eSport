@@ -17,7 +17,7 @@ host=${host:-"127.0.0.1"}
 port=${port:-"33006"}
 username=${username:-"readonly"}
 password=${password:-"r3@d0NlY"}
-output=${output:-"$HOME/Workspace/stc-solutions/eSport/database-dumb/dumb/"}
+output=${output:-"$PWD"}
 
 printf "\033[1;33m output: $output/eSport-dumb-$env.sql \033[0m\n\n"
 

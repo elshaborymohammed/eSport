@@ -29,12 +29,12 @@ function run() {
   entity="Person"
   role=${role:-"PLAYER"}
   code="+20"
-  phone="10$(sh utils/random_number.sh -l 8)"
-  name=$(sh utils/random_english.sh -l 5)
+  phone="10$(sh ../utils/random_number.sh -l 8)"
+  name="$(sh ../utils/random_english.sh -l 5)elshabory"
   mail="mailinator.com"
 
 #  printf "\033[1;33m>> Check existence <<\033[0m\n"
-  curl --silent -X POST --location "$domain/team-club/v1/public/club-owner-request/is-exist" \
+  curl -k --silent -X POST --location "$domain/team-club/v1/public/club-owner-request/is-exist" \
       -H "Content-Type: application/json" \
       -d "{
             \"entity\": \"$entity\",
@@ -44,14 +44,14 @@ function run() {
 
 
 #  printf "\033[1;33m>> Send OTP <<\033[0m\n"
-  curl --silent -X POST --location "$domain/team-club/v1/public/otp/send" \
+  curl -k --silent -X POST --location "$domain/team-club/v1/public/otp/send" \
       -H "Content-Type: application/json" \
       -d "{
             \"mobileNumber\": \"${code}${phone}\"
           }"
 
   printf "\033[1;33m>> Signup with $name <<\033[0m"
-  curl -w "\nhttp code: %{http_code} - content size %{size_download}\n" \
+  curl -k -w "\nhttp code: %{http_code} - content size %{size_download}\n" \
       -X POST --location "$domain/team-club/v1/public/users/sign-up" \
       -H "Content-Type: application/json" \
       -d "{
@@ -66,20 +66,22 @@ function run() {
               \"countryId\": null,
               \"password\": \"abc123\",
               \"profileType\": \"$role\",
-              \"profileName\": \"\"
+              \"profileName\": \"\",
+              \"profileName\": \"esports/public/${role,,}.png\"
+
             }
           }"
 
-access_token=$(curl --silent -X POST --location "$domain/auth/realms/cust_esports.com/protocol/openid-connect/token" \
+access_token=$(curl -k --silent -X POST --location "$domain/auth/realms/cust_esports.com/protocol/openid-connect/token" \
                      -H "Content-Type: application/x-www-form-urlencoded" \
                      -d "username=$name@$mail&password=abc123&client_id=WEB&grant_type=password" \
                      | jq .access_token | sed -e 's/\"//g')
 
-member_id=$(curl --silent -X POST --location "$domain/auth/realms/cust_esports.com/protocol/openid-connect/userinfo" \
+member_id=$(curl -k --silent -X POST --location "$domain/auth/realms/cust_esports.com/protocol/openid-connect/userinfo" \
                      -H "Authorization: Bearer $access_token" \
                      | jq .sub | sed -e 's/\"//g')
 
-  curl -w "\nhttp code: %{http_code} - content size %{size_download}\n" \
+  curl -k -w "\nhttp code: %{http_code} - content size %{size_download}\n" \
     -X POST --location "$domain/team-club/v1/game" \
     -H 'Accept: application/json' \
     -H 'Content-Type: application/json' \

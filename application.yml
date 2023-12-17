@@ -78,7 +78,7 @@ user-service.ribbon.listOfServers: http://localhost:6060
 team-club-service.ribbon.listOfServers: http://localhost:8001
 teamClub-service.ribbon.listOfServers: http://localhost:8001
 otp-service.ribbon.listOfServers: http://localhost:8080
-file-service.ribbon.listOfServers: http://localhost:80
+file-service.ribbon.listOfServers: http://localhost:8998
 notification-service.ribbon.listOfServers: http://localhost:8888
 customer-service.ribbon.listOfServers: http://localhost:8052
 apisix.key: edd1c9f034335f136f87ad84b625c8f1
@@ -104,7 +104,12 @@ keycloack:
 #  user_db: user-qa
 #  team_club_db: team-club-qa
 
+#ENV: uat
+#DOMAIN: https://${ENV}.saudiesports.sa/
+#USER_DB: user-${ENV}
+#TEAM_CLUB_DB: team-club-${ENV}
+
 ENV: uat
-DOMAIN: https://${ENV}.saudiesports.sa/
-USER_DB: user-${ENV}
-TEAM_CLUB_DB: team-club-${ENV}
+DOMAIN: https://lcoal.saudiesports.sa/
+USER_DB: users
+TEAM_CLUB_DB: team-club

@@ -1,0 +1,32 @@
+[submodule "customer"]
+	path = customer
+	url = https://gitlab.bluvalt.com/Esport/customer.git
+	branch = development
+[submodule "user"]
+	path = user
+	url = https://gitlab.bluvalt.com/Esport/user.git
+	branch = development
+[submodule "team-club"]
+	path = team-club
+	url = https://gitlab.bluvalt.com/Esport/team-club.git
+	branch = development
+[submodule "notifications"]
+	path = notifications
+	url = https://gitlab.bluvalt.com/Esport/notifications.git
+	branch = development
+[submodule "otp-service"]
+	path = otp-service
+	url = https://gitlab.bluvalt.com/Esport/otp-service.git
+	branch = development
+[submodule "file-mgmt"]
+	path = file-mgmt
+	url = https://gitlab.bluvalt.com/Esport/file-mgmt.git
+	branch = development
+[submodule "reports"]
+	path = reports
+	url = https://gitlab.bluvalt.com/Esport/reports.git
+	branch = development
+[submodule "scheduler"]
+	path = scheduler
+	url = https://gitlab.bluvalt.com/Esport/scheduler.git
+	branch = development
