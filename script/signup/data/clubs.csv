@@ -1,16 +1,6 @@
 env,role,name,email,phone,request,approved,used
 qa,CLUB,nvgbelshabory,nvgbelshabory@mailinator.com,+201095227668,9b455438-badb-4c93-afc8-9cc638f2f3a9,true
 qa,CLUB,pbycelshabory,pbycelshabory@mailinator.com,+201016977867,e353dbe8-04a1-4ac2-bc59-56ecad5a503b,true
-dev,CLUB,tewrelshabory,tewrelshabory@mailinator.com,+201063299957,857271ff-2ef8-4e51-8592-1aff8eb97831,true,true
-dev,CLUB,vpsvelshabory,vpsvelshabory@mailinator.com,+201090448177,2a6e2c51-9fe8-4e86-9f8c-cb0d2323854b,true
-dev,CLUB,fsjselshabory,fsjselshabory@mailinator.com,+201024716846,ba5a764c-e5b3-43f8-a1df-460b5f4771e0,true
-dev,CLUB,kxnuelshabory,kxnuelshabory@mailinator.com,+201051677760,5fbb6dab-a12d-401c-90dc-71420547a234,true
-dev,CLUB,qpeuelshabory,qpeuelshabory@mailinator.com,+201030347653,e967725c-1845-44fa-807d-e14b67e595a2,true
-dev,CLUB,fhxfelshabory,fhxfelshabory@mailinator.com,+201062538052,20a29f7a-95aa-4900-8a2b-007d7c13c994,true
-dev,CLUB,rnjpelshabory,rnjpelshabory@mailinator.com,+201090036431,edccc3c5-1836-4d20-9b73-af7aeabd96a3,true
-dev,CLUB,fxlaelshabory,fxlaelshabory@mailinator.com,+201052152739,a86ea88e-37fa-4077-9904-8c6f224b015f,true
-dev,CLUB,sluoelshabory,sluoelshabory@mailinator.com,+201023298298,c0a8a214-2745-4e3a-9f6f-2d5744bf532a,true
-dev,CLUB,kvuielshabory,kvuielshabory@mailinator.com,+201094906726,3eb2019a-4e37-4fbd-81f7-4225bac35841,true
 local,CLUB,rmjgelshabory,rmjgelshabory@mailinator.com,+201004364158,214bd581-3561-45ba-9072-ee6649c8375b,true
 uat,CLUB,jislelshabory,jislelshabory@mailinator.com,+201073843341,894e3d42-f9ac-48e4-ad1e-23670d5f4250,true,true
 uat,CLUB,gvvgelshabory,gvvgelshabory@mailinator.com,+201021409948,88483ef0-c014-418e-a584-e7237bb0a8b9,true
@@ -18,3 +8,6 @@ uat,CLUB,aljpelshabory,aljpelshabory@mailinator.com,+201061453740,5f186c00-16ac-
 uat,CLUB,bffjelshabory,bffjelshabory@mailinator.com,+201011818718,72fb80ad-e8dc-4ea2-bda7-a9b05e775a79,true
 uat,CLUB,vehgelshabory,vehgelshabory@mailinator.com,+201033093179,2b8d8623-fa21-472b-b666-23cd8a4ea20b,true
 uat,CLUB,ylbwelshabory,ylbwelshabory@mailinator.com,+201004585381,ed843966-022a-486f-8d98-222a6853a027,true
+dev,CLUB,onbvelshabory,onbvelshabory@mailinator.com,+201072471700,1e4cd9db-fdd7-4443-9473-426a05b12de4,true
+qa,CLUB,uesrelshabory,uesrelshabory@mailinator.com,+201020586544,56bda44e-39f1-4886-87dd-e7ac5773eb88,true
+dev,CLUB,qqskelshabory,qqskelshabory@mailinator.com,+201070531549,77426f54-abac-489c-81e2-989da6139e12,true
