@@ -1,3 +1,13 @@
+//buildscript {
+//    repositories { mavenCentral() }
+//    dependencies {
+//        classpath 'com.netflix.nebula:gradle-lint-plugin:19.0.1'
+//    }
+//}
+
+//apply plugin: 'nebula.lint'
+
+
 tasks.register('buildAll') {
     subprojects.forEach {
         buildAll.dependsOn it.tasks.build

@@ -1,12 +1,9 @@
-debug: true
-feign.client.config.default.loggerLevel: full
-
 spring:
   profiles.active: local-v2
   cloud.discovery.enabled: false
   liquibase:
     enabled: true
-    drop-first: false
+#    drop-first: false
   datasource:
 #    url: jdbc:mysql://localhost:3307/team-club-qa?allowMultiQueries=true
     username: root
@@ -55,6 +52,8 @@ SMS:
 
 
 
+debug: true
+feign.client.config.default.loggerLevel: full
 logging.level:
   #DEBUG, ERROR, FATAL, INFO, OFF, TRACE,  WARN
   root: INFO
@@ -104,12 +103,12 @@ keycloack:
 #  user_db: user-qa
 #  team_club_db: team-club-qa
 
-#ENV: qa
-#DOMAIN: https://${ENV}.saudiesports.sa/
-#USER_DB: user-${ENV}
-#TEAM_CLUB_DB: team-club-${ENV}
+ENV: qa
+DOMAIN: https://${ENV}.saudiesports.sa/
+USER_DB: user-${ENV}
+TEAM_CLUB_DB: team-club-${ENV}
 
-ENV: local
-DOMAIN: https://lcoal.saudiesports.sa/
-USER_DB: users
-TEAM_CLUB_DB: team-club
+#ENV: local
+#DOMAIN: https://lcoal.saudiesports.sa/
+#USER_DB: users
+#TEAM_CLUB_DB: team-club
